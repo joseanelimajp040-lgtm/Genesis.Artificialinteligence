@@ -1,8 +1,7 @@
-/* Importa a nova fonte do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    /* Paleta de cores mantida, com adições para gradientes e sombras */
+    /* Paleta de cores, gradientes e sombras */
     --background-color: #121212;
     --surface-color: #1e1e2f;
     --primary-text-color: #e0e0e0;
@@ -11,7 +10,7 @@
     --accent-color-darker: #7b24cc;
     --user-message-bg: #33334d;
     --genesis-message-bg: #2a2a3a;
-    --shadow-color: rgba(138, 43, 226, 0.25); /* Sombra baseada no roxo */
+    --shadow-color: rgba(138, 43, 226, 0.25); /* Sombra roxa */
 }
 
 * {
@@ -21,7 +20,7 @@
 }
 
 body {
-    /* Nova fonte aplicada */
+    /* Nova fonte */
     font-family: 'Poppins', sans-serif;
     background-color: var(--background-color);
     color: var(--primary-text-color);
@@ -29,22 +28,21 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* Garante que não haja scroll indesejado no body */
+    overflow: hidden; /* para o scroll infinito */
 }
 
 .chat-container {
     display: flex;
     flex-direction: column;
-    /* Alterado para 100% de largura e altura para tela cheia */
     width: 100%;
     height: 100%;
     max-width: none; /* Remove a largura máxima */
     background: linear-gradient(170deg, var(--surface-color), #1a1a2a);
-    border-radius: 0; /* Remove o border-radius para ocupar a tela toda */
-    box-shadow: none; /* Remove a sombra para o modo tela cheia */
+    border-radius: 0; /* Remove as bordas para ocupar a tela toda */
+    box-shadow: none; /* Remove a sombra da tela cheia */
     overflow: hidden;
     border: none; /* Remove a borda */
-    position: relative; /* Necessário para posicionar o welcome-message */
+    position: relative; /* posiciona a mensagem de entrada */
 }
 
 .chat-header {
@@ -54,8 +52,8 @@ body {
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    position: relative; /* Para garantir que o z-index funcione se necessário */
-    z-index: 10; /* Para ficar acima do welcome-message se sobreposto */
+    position: relative;
+    z-index: 10;
 }
 
 .chat-header h1 {
@@ -80,11 +78,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.25rem; /* Aumenta o espaço entre as mensagens */
-    position: relative; /* Para permitir z-index */
-    z-index: 5; /* Abaixo do header e acima do welcome-message */
+    position: relative;
+    z-index: 5;
 }
 
-/* Scrollbar estilizada */
+/* estabiliza o scroll */
 .chat-window::-webkit-scrollbar {
     width: 8px;
 }
@@ -146,7 +144,7 @@ body {
     background: rgba(30, 30, 47, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    z-index: 10; /* Para ficar acima do welcome-message */
+    z-index: 10; /* Para ficar acima do olá */
 }
 
 .chat-form {
@@ -211,7 +209,7 @@ body {
     transform: translateX(1px);
 }
 
-/* Novo estilo para a mensagem de boas-vindas centralizada */
+/* a mensagem de boas-vindas centralizada */
 .welcome-message {
     position: absolute;
     top: 50%;
@@ -224,12 +222,12 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 20px var(--shadow-color);
-    z-index: 1; /* Para ficar abaixo das mensagens do chat, mas acima do fundo */
+    z-index: 1;
     opacity: 1;
     transition: opacity 0.5s ease-out; /* Animação de fade-out */
 }
 
 .welcome-message.hidden {
     opacity: 0;
-    pointer-events: none; /* Garante que não interfira com cliques */
+    pointer-events: none;
 }
